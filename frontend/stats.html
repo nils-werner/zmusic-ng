@@ -70,8 +70,8 @@ function loadIps() {
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 2 && xhr.status == 403) {
-			alert("You must be logged in as an administrative user to view this page.\n\nAfter you're logged out, go to the main music page, and login with the admin creds.");
-			window.location = "logout";
+			alert("You must be logged in to view this page.");
+			window.location = "/";
 			return;
 		}
 		if (xhr.readyState != 4)

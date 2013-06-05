@@ -12,7 +12,20 @@
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 }
-
+#stats {
+	position: absolute;
+	bottom: 1px;
+	right: 1px;
+	font-size: 9px;
+	line-height: 9px;
+}
+#stats a {
+	color: #bbbbbb;
+}
+#stats a:hover {
+	color: #dddddd;
+	text-decoration: none;
+}
 #controls {
 	position: absolute;
 	bottom: 60px;

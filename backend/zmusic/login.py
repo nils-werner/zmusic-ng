@@ -34,10 +34,13 @@ def login_required(fn):
 def admin_required(fn):
 	@wraps(fn)
 	def decorated_view(*args, **kwargs):
-		if query_is_admin_user(request.args) or (current_user.is_authenticated() and current_user.admin):
+		if is_admin():
 			return fn(*args, **kwargs)
 		return app.login_manager.unauthorized()
 	return decorated_view
+
+def is_admin():
+	return query_is_admin_user(request.args) or (current_user.is_authenticated() and current_user.admin)
 
 def query_is_music_user(query):
 	username = query.get("username", None)
