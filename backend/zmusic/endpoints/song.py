@@ -36,7 +36,7 @@ def song(id, ext):
 
 	if ext not in [ "ogg", "mp3", "flac", "wav", "webm" ]:
 		return abort(404)
-	transcode_options = [ 'avconv', '-loglevel', 'quiet', '-i', song.filename, '-f', ext, '-y' ];
+	transcode_options = [ 'avconv', '-loglevel', 'quiet', '-i', song.filename, '-f', ext, '-y', '-fflags', 'nobuffer' ];
 	if ext == "ogg" or ext == "webm":
 		transcode_options.extend([ '-acodec', 'libvorbis', '-aq', '5' ])
 	elif ext == "mp3":
